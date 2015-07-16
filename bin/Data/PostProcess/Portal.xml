@@ -1,0 +1,7 @@
+<renderpath>
+    <command type="quad" tag="PortalTag" vs="Portal" ps="Portal" output="viewport">
+        <texture unit="0" name="WorldA" />
+        <texture unit="1" name="WorldP" />
+        <texture unit="2" name="WorldB" />
+    </command>
+</renderpath>
