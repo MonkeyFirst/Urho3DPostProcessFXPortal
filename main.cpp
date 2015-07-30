@@ -7,12 +7,12 @@ class MyApp : public Application
 {
 public:
 
-	World worlds[3];
-	SharedPtr<RenderPath> rp;
-	SharedPtr<Camera> mainCamera;
-	SharedPtr<Viewport> mainViewport;
-	SharedPtr<Scene> mainScene;
-	
+    World worlds[3];
+    SharedPtr<RenderPath> rp;
+    SharedPtr<Camera> mainCamera;
+    SharedPtr<Viewport> mainViewport;
+    SharedPtr<Scene> mainScene;
+    
 
     MyApp(Context* context) :
         Application(context)
@@ -27,66 +27,67 @@ public:
         engineParameters_["FullScreen"] = false;
         engineParameters_["Headless"] = false;
         engineParameters_["WindowWidth"] = 1280;
-		engineParameters_["WindowHeight"] = 720;
-		//engineParameters_["RenderPath"] = "Bin/CoreData/RenderPaths/Forward.xml";
+        engineParameters_["WindowHeight"] = 720;
+        engineParameters_["ResourcePaths"] = "Data;CoreData;MyData";
+        //engineParameters_["RenderPath"] = "Bin/CoreData/RenderPaths/Forward.xml";
     }
 
-	void InitMainView() 
-	{
-		ResourceCache* cache = GetSubsystem<ResourceCache>();
-		Renderer* renderer = GetSubsystem<Renderer>();
+    void InitMainView() 
+    {
+        ResourceCache* cache = GetSubsystem<ResourceCache>();
+        Renderer* renderer = GetSubsystem<Renderer>();
 
-		mainScene = SharedPtr<Scene>(new Scene(context_));
-		mainScene->CreateComponent<Octree>();
-
-
-		mainCamera = mainScene->CreateComponent<Camera>();
-		mainViewport = SharedPtr<Viewport>(new Viewport(context_, mainScene, mainCamera));
+        mainScene = SharedPtr<Scene>(new Scene(context_));
+        mainScene->CreateComponent<Octree>();
 
 
-		//rp = SharedPtr<RenderPath>(new RenderPath());
-		//rp->Load(cache->GetResource<XMLFile>("PostProcess/Portal.xml"));
-		
-		rp = mainViewport->GetRenderPath()->Clone();
-		rp->Append(cache->GetResource<XMLFile>("PostProcess/Portal.xml"));
-		mainViewport->SetRenderPath(rp);
-		
-		renderer->SetViewport(0, mainViewport);
+        mainCamera = mainScene->CreateComponent<Camera>();
+        mainViewport = SharedPtr<Viewport>(new Viewport(context_, mainScene, mainCamera));
 
 
-	}
+        //rp = SharedPtr<RenderPath>(new RenderPath());
+        //rp->Load(cache->GetResource<XMLFile>("PostProcess/Portal.xml"));
+        
+        rp = mainViewport->GetRenderPath()->Clone();
+        rp->Append(cache->GetResource<XMLFile>("PostProcess/Portal.xml"));
+        mainViewport->SetRenderPath(rp);
+        
+        renderer->SetViewport(0, mainViewport);
+
+
+    }
 
     virtual void Start()
     {
-		ResourceCache* cache = GetSubsystem<ResourceCache>();
-		Renderer* renderer = GetSubsystem<Renderer>();
-		renderer->SetNumViewports(0);
+        ResourceCache* cache = GetSubsystem<ResourceCache>();
+        Renderer* renderer = GetSubsystem<Renderer>();
+        renderer->SetNumViewports(0);
 
 
         // Called after engine initialization. Setup application & subscribe to events here
         SubscribeToEvent(E_KEYDOWN, HANDLER(MyApp, HandleKeyDown));
-		SubscribeToEvent(E_UPDATE, HANDLER(MyApp, HandleUpdate));
-		SubscribeToEvent(E_MOUSEBUTTONDOWN, HANDLER(MyApp, HandleMouseDown));
-		SubscribeToEvent(E_NODECOLLISION, HANDLER(MyApp, HandleCollision));
+        SubscribeToEvent(E_POSTUPDATE, HANDLER(MyApp, HandlePostUpdate));
+        SubscribeToEvent(E_MOUSEBUTTONDOWN, HANDLER(MyApp, HandleMouseDown));
+        SubscribeToEvent(E_NODECOLLISION, HANDLER(MyApp, HandleCollision));
 
-		
+        
 
-		// usial worlds
-		worlds[WORLD_A].InitScene(context_, "WorldA.xml", WORLD_A);
-		worlds[WORLD_A].SetupPlayer();
-		worlds[WORLD_A].CreateNamedRT("WorldA");
+        // usial worlds
+        worlds[WORLD_A].InitScene(context_, "WorldA.xml", WORLD_A);
+        worlds[WORLD_A].SetupPlayer();
+        worlds[WORLD_A].CreateNamedRT("WorldA");
 
-		worlds[WORLD_B].InitScene(context_, "WorldB.xml", WORLD_B);
-		worlds[WORLD_B].SetupPlayer();
-		worlds[WORLD_B].CreateNamedRT("WorldB");
+        worlds[WORLD_B].InitScene(context_, "WorldB.xml", WORLD_B);
+        worlds[WORLD_B].SetupPlayer();
+        worlds[WORLD_B].CreateNamedRT("WorldB");
 
-		// world with portal mesh
-		worlds[WORLD_P].InitScene(context_, "WorldP.xml", WORLD_P);
-		worlds[WORLD_P].SetupPlayer();
-		worlds[WORLD_P].CreateNamedRT("WorldP");
-		worlds[WORLD_P].FillPortalsWorldWithVisibleObstaclesFrom(worlds[WORLD_A]);
+        // world with portal mesh
+        worlds[WORLD_P].InitScene(context_, "WorldP.xml", WORLD_P);
+        worlds[WORLD_P].SetupPlayer();
+        worlds[WORLD_P].CreateNamedRT("WorldP");
+        worlds[WORLD_P].FillPortalsWorldWithVisibleObstaclesFrom(worlds[WORLD_A]);
 
-		InitMainView();
+        InitMainView();
 
 
     }
@@ -106,55 +107,59 @@ public:
             engine_->Exit();
 
 
-		if (key == KEY_F1)
-		{
+        if (key == KEY_F1)
+        {
 
-			worlds[WORLD_A].SaveFrame("A.png");
-			worlds[WORLD_P].SaveFrame("P.png");
-			worlds[WORLD_B].SaveFrame("B.png");
+            worlds[WORLD_A].SaveFrame("A.png");
+            worlds[WORLD_P].SaveFrame("P.png");
+            worlds[WORLD_B].SaveFrame("B.png");
 
 
-		}
+        }
 
     }
 
-	void HandleMouseDown(StringHash eventType, VariantMap& eventData)
-	{
-		using namespace MouseButtonDown;
+    void HandleMouseDown(StringHash eventType, VariantMap& eventData)
+    {
+        using namespace MouseButtonDown;
 
-		int key = eventData[P_BUTTON].GetInt();
+        int key = eventData[P_BUTTON].GetInt();
 
-		if (key == MOUSEB_MIDDLE)
-		{
+        if (key == MOUSEB_MIDDLE)
+        {
 
-		}
-
-
-
-	}
-
-	void HandleUpdate(StringHash eventType, VariantMap& eventData)
-	{
-		using namespace Update;
-
-		// Take the frame time step, which is stored as a float
-		float timeStep = eventData[P_TIMESTEP].GetFloat();
-
-		worlds[WORLD_A].MoveCamera(timeStep);
-		//worlds[WORLD_B].MoveCamera(timeStep);
-
-		worlds[WORLD_B].CopyPlayerTransforms(worlds[WORLD_A]);
-		worlds[WORLD_P].CopyPlayerTransforms(worlds[WORLD_A]);
-
-	}
-
-	void HandleCollision(StringHash eventType, VariantMap& eventData)
-	{
-		using namespace NodeCollision;
-		Node* otherNode = (Node*)eventData[P_OTHERNODE].GetPtr();
+        }
 
 
-	}
+
+    }
+
+    void HandlePostUpdate(StringHash eventType, VariantMap& eventData)
+    {
+        using namespace PostUpdate;
+
+        // Take the frame time step, which is stored as a float
+        float timeStep = eventData[P_TIMESTEP].GetFloat();
+
+        worlds[WORLD_A].MoveCamera(timeStep);
+        //worlds[WORLD_B].MoveCamera(timeStep);
+
+        worlds[WORLD_B].CopyPlayerTransforms(worlds[WORLD_A]);
+        worlds[WORLD_P].CopyPlayerTransforms(worlds[WORLD_A]);
+        
+        // Событие Update не гарнатирует, что физика будет просчитата сразу же
+        // поэтому движение камеры (которое основано на физике) и копирование ее положения
+        // происходит в обработчике PostUpdate
+
+    }
+
+    void HandleCollision(StringHash eventType, VariantMap& eventData)
+    {
+        using namespace NodeCollision;
+        Node* otherNode = (Node*)eventData[P_OTHERNODE].GetPtr();
+
+
+    }
 
 };
 

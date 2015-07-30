@@ -42,8 +42,6 @@
 #include <Urho3d/Resource/XMLFile.h>
 #include <Urho3D/Resource/XMLElement.h>
 
-#include <Urho3D/DebugNew.h>
-
 #include <Urho3D/IO/FileSystem.h>
 #include <Urho3D/IO/File.h>
 #include <Urho3D/IO/Log.h>
@@ -106,6 +104,9 @@
 #include <Urho3D/Audio/SoundSource.h>
 #include <Urho3D/Audio/SoundSource3D.h>
 #include <Urho3D/Audio/SoundListener.h>
+
+
+#include <Urho3D/DebugNew.h> // always must be last
 
 using namespace Urho3D;
 

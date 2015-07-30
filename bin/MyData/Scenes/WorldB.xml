@@ -66,17 +66,17 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777220">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 		<component type="StaticModel" id="16777227">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 		<component type="StaticModel" id="16777228">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -89,7 +89,7 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777221">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -102,7 +102,7 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777222">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -115,7 +115,7 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777223">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -128,7 +128,7 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777224">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -141,17 +141,17 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777229">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 		<component type="StaticModel" id="16777230">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 		<component type="StaticModel" id="16777231">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -164,17 +164,17 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777232">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 		<component type="StaticModel" id="16777233">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 		<component type="StaticModel" id="16777234">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -582,7 +582,7 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777312">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -703,7 +703,7 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777323">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -716,7 +716,7 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777324">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
@@ -729,17 +729,17 @@
 		<attribute name="Variables" />
 		<component type="StaticModel" id="16777325">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 		<component type="StaticModel" id="16777326">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 		<component type="StaticModel" id="16777327">
 			<attribute name="Model" value="Model;Models/Box.mdl" />
-			<attribute name="Material" value="Material;Textures/NoTextureMat.xml" />
+			<attribute name="Material" value="Material;Materials/NoTexture.xml" />
 			<attribute name="Cast Shadows" value="true" />
 		</component>
 	</node>
